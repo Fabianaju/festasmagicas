@@ -1,0 +1,669 @@
+/* Estilos globais */
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #ffffff;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(45deg, #ff66b2, #00bfff, #ffcc66);
+    background-size: 200% 200%;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: gradientAnimation 5s infinite ease-in-out; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    animation: headerMove 10s infinite alternate; 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 100px;
+    height: auto;
+    animation: bounce 2s infinite;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.main-nav {
+    flex: 1;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav li {
+    margin: 0 20px;
+    position: relative;
+    overflow: visible; 
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem; 
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Efeito de movimento e cor nos itens de navegação */
+.main-nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(0);
+    width: 100%;
+    height: 4px;
+    background: #ffffff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: scaleX(0);
+}
+
+.main-nav a:hover::before, .main-nav a:focus::before {
+    transform: scaleX(1);
+    background-color: #ffeb3b; 
+}
+
+.main-nav a:hover, .main-nav a:focus {
+    color: #ffeb3b; 
+    transform: translateY(-5px); 
+}
+
+/* Estilos para ícones sociais */
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icon {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #ffeb3b; 
+}
+
+/* Animação do gradiente */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, #ff66b2, #00bfff);
+    }
+    50% {
+        background: linear-gradient(45deg, #00bfff, #ff66b2);
+    }
+    100% {
+        background: linear-gradient(45deg, #ff66b2, #00bfff);
+    }
+}
+/* Animação de pulo na logo */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); 
+    }
+}
+
+/* Animação do movimento do cabeçalho */
+@keyframes headerMove {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px); 
+    }
+}
+
+/* Mobile Responsivo */
+@media (max-width: 768px) {
+    .header__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+/* Seção Hero */
+.hero {
+    background-color: #ffeb3b; 
+    color: #ffffff; 
+    padding: 60px 20px; 
+    text-align: center;
+    position: relative; 
+    overflow: hidden; 
+}
+
+.hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.text-container {
+    flex: 1;
+    padding-right: 20px; 
+}
+
+.animated-text {
+    font-size: 4em; 
+    font-weight: 700;
+    color: #007bff; /* Texto azul */
+    opacity: 0; 
+    animation: dropIn 1s forwards; 
+}
+
+.animated-subheading {
+    font-size: 2.5em; 
+    font-weight: 600;
+    color: #ff4f77; 
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+.animated-description {
+    font-size: 2em; 
+    color: #ff4f77; 
+    margin: 15px 0; 
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.subscribe-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #ff4f77;
+    color: #ffffff;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 2s forwards 1s;
+}
+
+.subscribe-button:hover {
+    background-color: #ff2e5b; 
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    width: 500px; 
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); 
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes dropIn {
+    0% {
+        transform: translateY(-100px); 
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+/* Seção Sobre Nós */
+.sobre {
+    background-color: #ffddc1; 
+    color: #333333;
+    padding: 40px 20px;
+}
+
+.sobre-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.text-container {
+    flex: 2;
+    text-align: justify;
+}
+
+.text-container h2 {
+    font-size: 2.5em;
+    color: #ff4f77; 
+}
+
+.text-container p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.saiba-mais-button {
+    display: inline-block;
+    background-color: #ff4f77; 
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.saiba-mais-button:hover {
+    background-color: #ff66b2; 
+}
+
+
+/* Seção Serviços */
+.servicos {
+    background-color: #ffcccb;
+    color: #333333;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.servicos h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #ff4f77; 
+    margin-bottom: 20px;
+}
+
+.servicos__grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.servico-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 calc(33.333% - 40px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servico-item:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.servico-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.servico-item h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.servico-item p {
+    font-size: 1em;
+    color: #666666;
+}
+
+/* Seção Galeria */
+.galeria {
+    background-color: #ffeb3b; 
+    color: #333333;
+    padding: 40px 20px;
+}
+
+.galeria h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #ff4f77; 
+    margin-bottom: 20px;
+}
+
+.galeria__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; 
+}
+
+.galeria__item {
+    flex: 1 1 23%;
+    overflow: hidden; 
+    border-radius: 8px;
+    position: relative; 
+}
+
+/* Animação de balanço horizontal */
+@keyframes horizontalSwing {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px); 
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Adiciona animação de balanço às imagens */
+.galeria__item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    animation: horizontalSwing 3s infinite; 
+}
+
+/* Efeito de zoom e brilho ao passar o mouse */
+.galeria__item:hover img {
+    transform: scale(1.1); 
+    filter: brightness(1.2); 
+}
+
+/* Seção Contato */
+.contato {
+    background-color: #ffcccb; 
+    color: #333333;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.contact-form {
+    flex: 1 1 50%; 
+    max-width: 50%; 
+    margin-right: 20px; 
+}
+
+.contact-image {
+    flex: 1; 
+    max-width: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-image img {
+    max-width: 100%;
+    height: auto;
+    animation: jump 2s infinite;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: #ff4f77; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #ff66b2; 
+}
+
+/* Animação de salto do palhaço */
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); 
+    }
+}
+
+
+/* Mobile Responsivo */
+@media (max-width: 768px) {
+    .contato {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-form, .contact-image {
+        max-width: 100%;
+        flex: none;
+    }
+
+    .contact-image {
+        margin-top: 20px;
+    }
+}
+
+
+
+/* Estilos para o rodapé */
+footer {
+    background: linear-gradient(45deg, #ff66b2, #00bfff);
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: gradientAnimation 5s infinite linear;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.footer__about, .footer__links, .footer__social {
+    flex: 1 1 30%;
+    margin: 10px;
+}
+
+.footer__logo {
+    width: 100px;
+    height: auto;
+    animation: bounce 2s infinite;
+}
+
+.footer__bottom {
+    margin-top: 20px;
+}
+.footer__links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.footer__links a:hover, .footer__links a:focus {
+    color: #ffeb3b; 
+    text-decoration: underline;
+}
+/* Animação do gradiente */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, #ff66b2, #00bfff);
+    }
+    50% {
+        background: linear-gradient(45deg, #00bfff, #ff66b2);
+    }
+    100% {
+        background: linear-gradient(45deg, #ff66b2, #00bfff);
+    }
+}
+
+/* Animação de pulo na logo */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Animação do palhaço na bicicleta */
+.palhaco-bicicleta {
+    position: absolute;
+    bottom: 0;
+    right: -150px; 
+    width: 150px;
+    height: auto;
+    animation: bicicletaMove 10s infinite linear;
+}
+
+/* Animação para o palhaço mover-se da direita para a esquerda */
+@keyframes bicicletaMove {
+    0% {
+        right: -150px;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+/* Mobile Responsivo */
+@media (max-width: 768px) {
+    .footer__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__about, .footer__links, .footer__social {
+        flex: 1 1 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .palhaco-bicicleta {
+        width: 100px; 
+    }
+}
